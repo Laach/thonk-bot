@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const PREFIX = '!';
+require('dotenv').config();
+const token = process.env.ACCESS_TOKEN;
 
 const axios = require('axios');
 const cheerio = require('cheerio');
@@ -9,7 +11,6 @@ bot.on('ready', ()=>{
     console.log('Bot is online');
     bot.user.setActivity('!help for epic commands', {type: 'PLAYING'});
 });
-
 
 bot.on('message', message=>{
     /*if(message.content === 'thonk'){
