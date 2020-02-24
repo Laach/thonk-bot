@@ -12,7 +12,7 @@ Discord bot for private MDH server in [Node.js](https://nodejs.org/) using the [
 
 ## How to use
 (in need of further info)
-To actually connect to the bot you need an access token. The access token is currently hidden in an .env file. The [.env-sample](/.env-sample) file shows the syntax.
+To actually connect to the bot you need an access token. The access token is currently hidden in an .env file. The [.env_sample](/.env_sample) file shows the syntax.
 
 - [x] Protect access token 
 - [ ] Update how to use section with setup guide
