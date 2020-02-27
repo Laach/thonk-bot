@@ -17,7 +17,7 @@ To actually connect to the bot you need an access token. The access token is cur
 
 ## Todo list 
 - [x] Protect access token 
-- [ ] Update how to use section with setup guide
+- [x] Update how to use section with setup guide
 - [ ] Decide whether or not the node.js modules should be included in the repo or ignored by .gitignore
 - [ ] add more commands
 - [ ] yes
