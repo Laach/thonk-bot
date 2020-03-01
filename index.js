@@ -9,7 +9,7 @@ const cheerio = require('cheerio');
 
 bot.on('ready', ()=>{
     console.log('Bot is online');
-    bot.user.setActivity('!help for epic commands', {type: 'PLAYING'});
+    bot.user.setActivity('!help for commands', { type: 'CUSTOM_STATUS'});
 });
 
 bot.on('message', message=>{
@@ -97,7 +97,7 @@ bot.on('message', message=>{
                     })
                     description = description.concat('```');
 
-                    const embed = new Discord.RichEmbed()
+                    const embed = new Discord.MessageEmbed()
                     .setTitle('     day        date                time                     room')
                     .setDescription(description);
 
@@ -109,11 +109,12 @@ bot.on('message', message=>{
             message.channel.send('https://webbschema.mdh.se/setup/jsp/Schema.jsp?startDatum=idag&intervallTyp=m&intervallAntal=6&resurser=s.aan18028%2Cs.can18010%2Cs.eem18005%2Cs.ngs18001%2Cpkn18004');
             break;
         case 'vanish':
-            message.channel.fetchMessages({ limit: 10})
-            .then(messages => messages.array().forEach(
+            message.channel.messages.fetch({ limit: 10})
+            .then(msgs => msgs.array().forEach(
                 msg => msg.author.equals(message.author) && msg.delete() 
             ))
             .catch(console.error);
+
             break;
         case 'clear':
             if(message.member.hasPermission("ADMINISTRATOR")){
@@ -124,19 +125,19 @@ bot.on('message', message=>{
            
             break;
         case 'help':
-            const embed = new Discord.RichEmbed()
-            .setTitle('available commands')
-            .addField('!help', 'shows this message')
-            .addField('!ping', 'pings the bot')
-            .addField('!group / !group {mdh IDs}', 'all of our booked group rooms / booked by specific people, use one or more mdh ids as arguments separated by spaces')
-            .addField('!grouplink', 'gives a link instead of displaying the booked rooms')
-            .addField('!vanish', 'deletes your last 10 messages in the channel. poof!')
-            .addField('!clear', 'deletes the last 50 messages in the channel (admin only)')
+            const newEmbed = new Discord.MessageEmbed()
+            .setTitle('Available commands')
+            .addField('!help', 'Shows this message')
+            .addField('!ping', 'Pings the bot')
+            .addField('!group / !group {mdh IDs}', 'All of our booked group rooms / Booked by specific people, use one or more mdh ids as arguments separated by spaces')
+            .addField('!grouplink', 'Gives a link instead of displaying the booked rooms')
+            .addField('!vanish', 'Deletes your last 10 messages in the channel. poof!')
+            .addField('!clear', 'Deletes the last 50 messages in the channel (admin only)')
             .setColor(0xa80051)
-            .setThumbnail(bot.user.avatarURL)
-            .setFooter('created by: me :)', bot.user.avatarURL)
+            .setThumbnail(bot.user.avatarURL())
+            .setFooter('Created by me :)', bot.user.avatarURL())
             .setTimestamp();
-            message.channel.send(embed);
+            message.channel.send(newEmbed);
             break;
     }
    
