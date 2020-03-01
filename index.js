@@ -109,11 +109,11 @@ bot.on('message', message=>{
             message.channel.send('https://webbschema.mdh.se/setup/jsp/Schema.jsp?startDatum=idag&intervallTyp=m&intervallAntal=6&resurser=s.aan18028%2Cs.can18010%2Cs.eem18005%2Cs.ngs18001%2Cpkn18004');
             break;
         case 'vanish':
-            message.channel.messages.fetch({ limit: 10})
-            .then(msgs => msgs.array().forEach(
-                msg => msg.author.equals(message.author) && msg.delete() 
-            ))
-            .catch(console.error);
+            message.channel.messages.fetch( {limit: 20} )
+            .then(messages => {
+                const userMessages = messages.filter(msg => msg.author.equals(message.author));
+                message.channel.bulkDelete(userMessages);
+            })
 
             break;
         case 'clear':
@@ -131,7 +131,7 @@ bot.on('message', message=>{
             .addField('!ping', 'Pings the bot')
             .addField('!group / !group {mdh IDs}', 'All of our booked group rooms / Booked by specific people, use one or more mdh ids as arguments separated by spaces')
             .addField('!grouplink', 'Gives a link instead of displaying the booked rooms')
-            .addField('!vanish', 'Deletes your last 10 messages in the channel. poof!')
+            .addField('!vanish', 'Deletes your last 20 messages in the channel. poof!')
             .addField('!clear', 'Deletes the last 50 messages in the channel (admin only)')
             .setColor(0xa80051)
             .setThumbnail(bot.user.avatarURL())
