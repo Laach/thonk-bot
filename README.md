@@ -5,10 +5,12 @@ Discord bot for private MDH server in [Node.js](https://nodejs.org/) using the [
 - **!help** shows all commands
 - **!ping** pings the bot, simply for checking if the bot is actually working
 - **!group** shows all of our booked group rooms (currently alexander,casper,emil,nick,philip)
-- **!group** {MDH ids} rooms booked by specific people, use one or more mdh ids as arguments separated by spaces
+- **!group {MDH ids}** rooms booked by specific people, use one or more mdh ids as arguments separated by spaces
 - **!grouplink** gives a website link instead of displaying the booked rooms in the server
 - **!vanish** deletes your last 10 messages
 - **!clear** deletes the last 50 messages in the current text channel (requires admin priviliges)
+- **!schedule** returns the schedule for the two current standard courses
+- **!schedule {course names}** returns the schedule for the specified courses, use one or more course names as arguments
 
 ## Setup
 The youtube guide [Make Your Own Discord Bot | Basics (2019)](https://www.youtube.com/watch?v=X_qg0Ut9nU8) by CodeLyon was used to get this bot up and running. All necessary setup steps are covered in the video
@@ -19,6 +21,6 @@ To actually connect to the bot you need an access token. The access token is cur
 - [x] Protect access token 
 - [x] Update how to use section with setup guide
 - [x] Decide whether or not the node.js modules should be included in the repo or ignored by .gitignore (removed)
-- [x] Update !schedule to show schedule in table format directly in discord instead of returning a link
+- [ ] Update !schedule to show schedule in table format directly in discord instead of returning a link
 - [ ] add more commands
 - [ ] yes
