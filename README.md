@@ -19,5 +19,6 @@ To actually connect to the bot you need an access token. The access token is cur
 - [x] Protect access token 
 - [x] Update how to use section with setup guide
 - [x] Decide whether or not the node.js modules should be included in the repo or ignored by .gitignore (removed)
+- [x] Update !schedule to show schedule in table format directly in discord instead of returning a link
 - [ ] add more commands
 - [ ] yes
