@@ -28,13 +28,13 @@ bot.on('message', message=>{
             message.channel.send('dong!');
             break;
         case 'group':
-            var url = '';
+            let url = '';
             if(!args.length){
                 url = 'https://webbschema.mdh.se/setup/jsp/SchemaXML.jsp?startDatum=idag&intervallTyp=m&intervallAntal=6&resurser=s.aan18028%2Cs.can18010%2Cs.eem18005%2Cs.ngs18001%2Cpkn18004';
 
             }else{
                 url = 'https://webbschema.mdh.se/setup/jsp/SchemaXML.jsp?startDatum=idag&intervallTyp=m&intervallAntal=6&resurser=';
-                for(var i = 0; i<args.length; i++){
+                for(let i = 0; i<args.length; i++){
                     url=url.concat('s.',args[i], '%2C');
                 }
             }
@@ -78,13 +78,13 @@ bot.on('message', message=>{
                     });
                     console.log(bookedRooms);
                     
-                    var description = "```cs\n";
-                    var currentDay = 'Mån';
+                    let description = "```cs\n";
+                    let currentDay = 'Mån';
                     
                     bookedRooms.forEach(element =>{
-                        var dateYear =  element.date.slice(0,2);
-                        var dateMonth = element.date.slice(2,4);
-                        var dateDay = element.date.slice(4,6);
+                        let dateYear =  element.date.slice(0,2);
+                        let dateMonth = element.date.slice(2,4);
+                        let dateDay = element.date.slice(4,6);
                         if(currentDay === element.day){
                             description = description.concat(element.day,'   ',dateYear,'-',dateMonth,'-',
                                 dateDay,'   ',element.time,'  #',element.room, ' \n');
@@ -139,6 +139,7 @@ bot.on('message', message=>{
             .setTimestamp();
             message.channel.send(newEmbed);
             break;
+
     }
    
 })
